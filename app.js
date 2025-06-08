@@ -38,7 +38,7 @@ function sendEmail({ recipient_email }) {
   });
 }
 app.get("/", (req, res) => {
-  sendEmail({ recipient_email: "damianungureanu2000@gmail.com" })
+  sendEmail(req.body)
     .then((response) => res.send(response.message))
     .catch((error) => res.status(500).send(error.message));
 });
