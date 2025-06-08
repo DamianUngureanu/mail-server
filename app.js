@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-function sendEmail({ recipient_email }) {
+function sendEmail({ recipient_email, code }) {
   return new Promise((resolve, reject) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -25,7 +25,7 @@ function sendEmail({ recipient_email }) {
       from: "damianungureanu2000@gmail.com",
       to: recipient_email,
       subject: "Verificare Email",
-      text: "cod 000",
+      text: `verification cod: ${code}`,
     };
     transporter.sendMail(mailConfig, function (error, info) {
       if (error) {
