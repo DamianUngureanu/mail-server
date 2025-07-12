@@ -37,6 +37,7 @@ function sendEmail({ recipient_email, code }) {
     });
   });
 }
+//buna
 app.get("/", (req, res) => {
   sendEmail(req.body)
     .then((response) => res.send(response.message))
